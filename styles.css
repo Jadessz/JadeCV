@@ -45,13 +45,25 @@
     box-sizing: border-box;
 }
 
+[data-theme='light'], [data-theme='dark'] {
+    transition: 
+        --bg-gradient 0.5s ease,
+        --glass-bg 0.5s ease,
+        --text-primary 0.5s ease,
+        --text-secondary 0.5s ease,
+        --border 0.5s ease,
+        --shadow 0.5s ease,
+        --skill-bar-bg 0.5s ease,
+        --skill-bar-fill 0.5s ease;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     background: var(--bg-gradient);
     color: var(--text-primary);
     min-height: 100vh;
     padding: 2rem;
-    transition: background 0.3s ease;
+    transition: all 0.5s ease;
 }
 
 .container {
@@ -82,6 +94,33 @@ body {
 
 .theme-toggle:hover {
     transform: scale(1.1);
+}
+
+.language-toggle {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    padding: 0.8rem;
+    width: 2.8rem;
+    height: 2.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+}
+
+.language-toggle:hover {
+    transform: scale(1.1);
+    border-color: var(--skill-bar-fill);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 }
 
 section {
@@ -391,6 +430,11 @@ h1, h2, h3 {
     .theme-toggle {
         top: 1rem;
         right: 1rem;
+    }
+
+    .language-toggle {
+        top: 1rem;
+        left: 1rem;
     }
 
     h1 {

@@ -272,3 +272,26 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+const downloadToggle = document.querySelector('.download-toggle');
+
+downloadToggle.addEventListener('click', async () => {
+    const files = ['index.html', 'styles.css', 'script.js', 'translations.js'];
+    const zip = new JSZip();
+
+    for (const file of files) {
+        const response = await fetch(file);
+        const content = await response.text();
+        zip.file(file, content);
+    }
+
+    const blob = await zip.generateAsync({ type: 'blob' });
+    const downloadUrl = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = downloadUrl;
+    a.download = 'website-source.zip';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(downloadUrl);
+});

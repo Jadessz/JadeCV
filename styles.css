@@ -154,6 +154,20 @@ section.visible {
     padding: 2rem;
     margin: 2rem 0;
     box-shadow: var(--shadow);
+    animation: gradient 15s ease infinite;
+    background-size: 200% 200%;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .about-me-section > *:not(h2) {
@@ -444,4 +458,58 @@ h1, h2, h3 {
     h2 {
         font-size: 1.5rem;
     }
+}
+
+.download-toggle {
+    position: relative;
+}
+
+.download-toggle {
+    position: fixed;
+    top: 20px;
+    right: 80px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--glass-bg);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.download-toggle::before {
+    content: "Click to download website source code as ZIP";
+    position: fixed;
+    top: 70px;
+    right: 80px;
+    transform: none;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    padding: 0.8rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+    z-index: 1001;
+}
+
+.download-toggle:hover::before {
+    opacity: 1;
+    visibility: visible;
+}
+
+.download-toggle:hover {
+    transform: scale(1.1);
+    color: var(--skill-bar-fill);
 }

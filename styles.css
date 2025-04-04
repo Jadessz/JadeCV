@@ -115,6 +115,9 @@ section.visible {
     padding: 2rem;
     margin: 2rem 0;
     box-shadow: var(--shadow);
+}
+
+.about-me-section > *:not(h2) {
     animation: floating 3s ease-in-out infinite;
 }
 

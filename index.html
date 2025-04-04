@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive CV</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body data-theme="light">
+    <div class="theme-toggle" role="button" tabindex="0" aria-label="Toggle theme">
+        <i class="fas fa-sun"></i>
+    </div>
+
+    <main class="container">
+        <header class="profile-section" role="banner">
+            <div class="profile-image">
+                <img src="https://scontent.ftbs4-2.fna.fbcdn.net/v/t39.30808-6/480792981_1160568958931770_1804618082628787047_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=p7cnlLUFtucQ7kNvwH7z2Mx&_nc_oc=AdmTqifYWZhBKFjrsQdw8oJ0NlnPxdd9fYWDuXGAThal0WxxCCPpGd3xfIxJggY0JbU&_nc_zt=23&_nc_ht=scontent.ftbs4-2.fna&_nc_gid=keXbqAgeTcblc_7-rrzBAg&oh=00_AYH_-nI0koj94skteZm7F_0uQSQ7-NYGOxJwTjgZanymnA&oe=67F4E4BF" alt="Profile picture" width="150" height="150">
+            </div>
+            <h1>Demetre Jibladze</h1>
+            <p class="title">Freelance Programmer</p>
+        </header>
+
+        <div class="tabs-container">
+            <div class="tabs-buttons" role="tablist">
+                <button class="tab-button active" role="tab" aria-selected="true" aria-controls="languages-panel" id="languages-tab">
+                    Languages
+                </button>
+                <button class="tab-button" role="tab" aria-selected="false" aria-controls="technical-skills-panel" id="technical-skills-tab">
+                    Technical Skills
+                </button>
+            </div>
+
+            <div class="tab-panels">
+                <section id="technical-skills-panel" class="tab-panel" role="tabpanel" aria-labelledby="technical-skills-tab">
+                    <div class="skills-container">
+                        <div class="skill">
+                            <span class="skill-name">HTML5</span>
+                            <span class="proficiency-text">Expert</span>
+                        </div>
+                        <div class="skill">
+                            <span class="skill-name">Python</span>
+                            <span class="proficiency-text">Expert</span>
+                        </div>
+                        <div class="skill">
+                            <span class="skill-name">CSS3</span>
+                            <span class="proficiency-text">Advanced</span>
+                        </div>
+                        <div class="skill">
+                            <span class="skill-name">JavaScript</span>
+                            <span class="proficiency-text">Advanced</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="languages-panel" class="tab-panel active" role="tabpanel" aria-labelledby="languages-tab">
+                    <div class="skills-container">
+                        <div class="skill">
+                            <span class="skill-name">Georgian</span>
+                            <span class="proficiency-text">Native</span>
+                        </div>
+                        <div class="skill">
+                            <span class="skill-name">English</span>
+                            <span class="proficiency-text">Fluent</span>
+                        </div>
+                        <div class="skill">
+                            <span class="skill-name">German</span>
+                            <span class="proficiency-text">Advanced</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <section class="experience-section" aria-labelledby="experience-heading">
+            <h2 id="experience-heading">Experience</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <h3>Customer Service Specialist</h3>
+                    <p class="company">Cartooli / Georgian</p>
+                    <p class="period">March 2020 - August 2021</p>
+                    <p>Marketing, advertising, PR Public Relations, Marketing Communications, Customer Service</p>
+                </div>
+                <div class="card">
+                    <h3>Social Media Account Manager</h3>
+                    <p class="company">Cartooli / Georgian</p>
+                    <p class="period">March 2020 - August 2021</p>
+                    <p>Information technologies Social networks</p>
+                </div>
+                <div class="card">
+                    <h3>Marketing Manager</h3>
+                    <p class="company">Cartooli / Georgian</p>
+                    <p class="period">March 2020 - August 2021</p>
+                    <p>Marketing, advertising, PR Marketing Manager</p>
+                </div>
+                <div class="card">
+                    <h3>Analyst</h3>
+                    <p class="company">Cartooli / Georgian</p>
+                    <p class="period">March 2020 - August 2021</p>
+                    <p>Sales/Sales Analyst</p>
+                </div>
+                <div class="card">
+                    <h3>Freelance Web Developer</h3>
+                    <p class="company">Fiverr</p>
+                    <p class="period">March 2020 - August 2021</p>
+                    <p>Web development, Frontend development, Responsive design, Client communication</p>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="education-section" aria-labelledby="education-heading">
+            <h2 id="education-heading">Education</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <h3>Bachelor's in Business Administration</h3>
+                    <p class="institution">New Vision University</p>
+                    <p class="period">September 2023 - June 2027</p>
+                </div>
+                <div class="card">
+                    <h3>CS50: Introduction to Computer Science</h3>
+                    <p class="institution">Harvard University (Online)</p>
+                    <p class="period">January 2023 - June 2023</p>
+                    <p>Comprehensive introduction to computer science and programming</p>
+                </div>
+                <div class="card">
+                    <h3>Secondary Education</h3>
+                    <p class="institution">Zugdidi Akaki Tsereteli Public School No. 1</p>
+                    <p class="period">September 2011 - June 2023</p>
+                    <p>Gold Medalist</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section" aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Contact</h2>
+            <div class="contact-links">
+                <a href="mailto:john@example.com" aria-label="Email" class="contact-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="contact-link">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="contact-link">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

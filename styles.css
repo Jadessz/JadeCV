@@ -1,13 +1,13 @@
 :root {
-    --bg-gradient-light: linear-gradient(135deg, #d1d8e0 0%, #b8c2cc 100%);
+    --bg-gradient-light: linear-gradient(135deg, #c1c8d0 0%, #a8b2bc 100%);
     --bg-gradient-dark: linear-gradient(135deg, #121212 0%, #1a1a1a 100%);
-    --glass-bg-light: rgba(209, 216, 224, 0.85);
+    --glass-bg-light: rgba(193, 200, 208, 0.85);
     --glass-bg-dark: rgba(18, 18, 18, 0.85);
     --text-primary-light: #2d3748;
     --text-primary-dark: #ecf0f1;
     --text-secondary-light: #4a5568;
     --text-secondary-dark: #bdc3c7;
-    --border-light: rgba(0, 0, 0, 0.06);
+    --border-light: rgba(0, 0, 0, 0.12);
     --border-dark: rgba(255, 255, 255, 0.15);
     --shadow-light: 0 8px 30px rgba(0, 0, 0, 0.05);
     --shadow-dark: 0 8px 32px rgba(0, 0, 0, 0.2);
@@ -105,6 +105,17 @@ section.visible {
 .profile-section {
     text-align: center;
     padding: 3rem 2rem;
+}
+
+.about-me-section {
+    background: linear-gradient(135deg, var(--glass-bg), rgba(255, 255, 255, 0.1));
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow);
+    animation: floating 3s ease-in-out infinite;
 }
 
 .profile-image img {

@@ -1,19 +1,19 @@
 :root {
-    --bg-gradient-light: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
+    --bg-gradient-light: linear-gradient(135deg, #d1d8e0 0%, #b8c2cc 100%);
     --bg-gradient-dark: linear-gradient(135deg, #121212 0%, #1a1a1a 100%);
-    --glass-bg-light: rgba(255, 255, 255, 0.85);
+    --glass-bg-light: rgba(209, 216, 224, 0.85);
     --glass-bg-dark: rgba(18, 18, 18, 0.85);
-    --text-primary-light: #1a2634;
+    --text-primary-light: #2d3748;
     --text-primary-dark: #ecf0f1;
-    --text-secondary-light: #2d3748;
+    --text-secondary-light: #4a5568;
     --text-secondary-dark: #bdc3c7;
-    --border-light: rgba(0, 0, 0, 0.1);
+    --border-light: rgba(0, 0, 0, 0.06);
     --border-dark: rgba(255, 255, 255, 0.15);
-    --shadow-light: 0 8px 32px rgba(31, 38, 135, 0.15);
+    --shadow-light: 0 8px 30px rgba(0, 0, 0, 0.05);
     --shadow-dark: 0 8px 32px rgba(0, 0, 0, 0.2);
-    --skill-bar-bg-light: rgba(255, 255, 255, 0.2);
+    --skill-bar-bg-light: rgba(237, 242, 247, 0.25);
     --skill-bar-bg-dark: rgba(255, 255, 255, 0.1);
-    --skill-bar-fill-light: #3498db;
+    --skill-bar-fill-light: #4299e1;
     --skill-bar-fill-dark: #2ecc71;
 }
 
@@ -125,7 +125,7 @@ h1, h2, h3 {
 }
 
 .tabs-container {
-    background: var(--glass-bg);
+    background: linear-gradient(135deg, var(--glass-bg), rgba(255, 255, 255, 0.1));
     backdrop-filter: blur(10px);
     border: 1px solid var(--border);
     border-radius: 1rem;
@@ -143,7 +143,7 @@ h1, h2, h3 {
 }
 
 .tab-button {
-    background: none;
+    background: linear-gradient(to right, transparent, var(--glass-bg));
     border: none;
     color: var(--text-primary);
     font-size: 1.1rem;
@@ -151,6 +151,7 @@ h1, h2, h3 {
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
+    border-radius: 0.5rem;
 }
 
 .tab-button::after {
@@ -177,11 +178,30 @@ h1, h2, h3 {
     position: relative;
     display: block;
     padding: 1.5rem;
-    background: var(--glass-bg);
+    animation: floating 3s ease-in-out infinite;
+    background: linear-gradient(45deg, var(--glass-bg), rgba(255, 255, 255, 0.05));
     backdrop-filter: blur(10px);
     border: 1px solid var(--border);
     border-radius: 0.8rem;
     box-shadow: var(--shadow);
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes floating {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
 }
 
 .tab-panel {
@@ -189,9 +209,15 @@ h1, h2, h3 {
     opacity: 0;
     transform: translateY(10px);
     transition: all 0.3s ease;
-    background: var(--glass-bg);
+    background: linear-gradient(45deg, var(--glass-bg), rgba(255, 255, 255, 0.05), var(--glass-bg));
+    background-size: 200% 200%;
+    animation: gradientMove 15s ease infinite;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
     border-radius: 0.5rem;
-    padding: 1rem;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
 }
 
 .tab-panel.active {
@@ -268,7 +294,10 @@ h1, h2, h3 {
 }
 
 .card {
-    background: var(--glass-bg);
+    background: linear-gradient(45deg, var(--glass-bg), rgba(255, 255, 255, 0.05), var(--glass-bg));
+    animation: floating 3s ease-in-out infinite;
+    background-size: 200% 200%;
+    animation: gradientMove 15s ease infinite, floating 3s ease-in-out infinite;
     backdrop-filter: blur(10px);
     border: 1px solid var(--border);
     border-radius: 0.5rem;

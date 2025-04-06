@@ -106,7 +106,6 @@ function updateContent(language) {
     // Update section headings
     document.querySelector('#experience-heading').textContent = content.experience;
     document.querySelector('#education-heading').textContent = content.education;
-    document.querySelector('#contact-heading').textContent = content.contact;
     
     // Update experience cards
     const experienceCards = document.querySelectorAll('.experience-section .card');

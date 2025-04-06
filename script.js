@@ -162,7 +162,10 @@ function updateContent(language) {
             card.querySelector('.institution').textContent = content[info.institution];
             card.querySelector('.period').textContent = content[info.period];
             if (info.desc) {
-                card.querySelector('p:last-child').textContent = content[info.desc];
+                const descElement = card.querySelector('p:last-child');
+                if (descElement) {
+                    descElement.textContent = content[info.desc];
+                }
             }
         }
     });

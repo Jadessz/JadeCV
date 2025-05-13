@@ -12,24 +12,36 @@ body.setAttribute('data-language', savedLanguage);
 updateThemeIcon(savedTheme);
 updateContent(savedLanguage);
 
-// Theme toggle event listener
-themeToggle.addEventListener('click', () => {
+// Theme toggle event listener - add both click and touch support
+function toggleTheme() {
     const currentTheme = body.getAttribute('data-theme');
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     
     body.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
     updateThemeIcon(newTheme);
+}
+
+themeToggle.addEventListener('click', toggleTheme);
+themeToggle.addEventListener('touchend', function(e) {
+    e.preventDefault(); // Prevent default touch behavior
+    toggleTheme();
 });
 
-// Language toggle event listener
-languageToggle.addEventListener('click', () => {
+// Language toggle event listener - add both click and touch support
+function toggleLanguage() {
     const currentLanguage = body.getAttribute('data-language');
     const newLanguage = currentLanguage === 'en' ? 'ka' : 'en';
     
     body.setAttribute('data-language', newLanguage);
     localStorage.setItem('language', newLanguage);
     updateContent(newLanguage);
+}
+
+languageToggle.addEventListener('click', toggleLanguage);
+languageToggle.addEventListener('touchend', function(e) {
+    e.preventDefault(); // Prevent default touch behavior
+    toggleLanguage();
 });
 
 // Update theme icon
@@ -183,30 +195,41 @@ themeToggle.addEventListener('keydown', (e) => {
 const tabButtons = document.querySelectorAll('.tab-button');
 const tabPanels = document.querySelectorAll('.tab-panel');
 
+// Function to handle tab switching for both click and touch events
+function switchTab(button) {
+    // Remove active class from all buttons and panels
+    tabButtons.forEach(btn => btn.classList.remove('active'));
+    tabPanels.forEach(panel => panel.classList.remove('active'));
+
+    // Add active class to clicked button and corresponding panel
+    button.classList.add('active');
+    const panelId = button.getAttribute('aria-controls');
+    document.getElementById(panelId).classList.add('active');
+
+    // Update ARIA attributes
+    tabButtons.forEach(btn => btn.setAttribute('aria-selected', 'false'));
+    button.setAttribute('aria-selected', 'true');
+    
+    // Trigger skill bar animations for the newly visible panel
+    const visibleSkillBars = document.getElementById(panelId).querySelectorAll('.proficiency-level');
+    visibleSkillBars.forEach(bar => {
+        const level = bar.getAttribute('data-level');
+        bar.style.width = `${level}%`;
+    });
+}
+
 tabButtons.forEach(button => {
+    // Add click event listener
     button.addEventListener('click', () => {
-        // Remove active class from all buttons and panels
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-        tabPanels.forEach(panel => panel.classList.remove('active'));
-
-        // Add active class to clicked button and corresponding panel
-        button.classList.add('active');
-        const panelId = button.getAttribute('aria-controls');
-        document.getElementById(panelId).classList.add('active');
-
-        // Update ARIA attributes
-        tabButtons.forEach(btn => btn.setAttribute('aria-selected', 'false'));
-        button.setAttribute('aria-selected', 'true');
-
-        // Trigger skill bar animations for the newly visible panel
-        const visibleSkillBars = document.getElementById(panelId).querySelectorAll('.proficiency-level');
-        visibleSkillBars.forEach(bar => {
-            const level = bar.getAttribute('data-level');
-            bar.style.width = `${level}%`;
-        });
+        switchTab(button);
+    });
+    
+    // Add touch event listener for mobile devices
+    button.addEventListener('touchend', function(e) {
+        e.preventDefault(); // Prevent default touch behavior
+        switchTab(button);
     });
 });
-
 
 // Trigger skill bar animations for all skill bars
 const skillBars = document.querySelectorAll('.proficiency-level');
@@ -277,7 +300,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 const downloadToggle = document.querySelector('.download-toggle');
 
-downloadToggle.addEventListener('click', async () => {
+// Download toggle function - for both click and touch events
+async function handleDownload() {
     const files = ['index.html', 'styles.css', 'script.js', 'translations.js'];
     const zip = new JSZip();
 
@@ -296,4 +320,11 @@ downloadToggle.addEventListener('click', async () => {
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(downloadUrl);
+}
+
+// Add both click and touch event listeners for download
+downloadToggle.addEventListener('click', handleDownload);
+downloadToggle.addEventListener('touchend', function(e) {
+    e.preventDefault(); // Prevent default touch behavior
+    handleDownload();
 });

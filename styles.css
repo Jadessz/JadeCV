@@ -90,6 +90,7 @@ body {
     cursor: pointer;
     box-shadow: var(--shadow);
     transition: all 0.3s ease;
+    z-index: 1000;
 }
 
 .theme-toggle:hover {
@@ -115,6 +116,7 @@ body {
     transition: all 0.3s ease;
     font-size: 1.2rem;
     color: var(--text-primary);
+    z-index: 1000;
 }
 
 .language-toggle:hover {
@@ -584,4 +586,15 @@ h1, h2, h3 {
 .download-toggle:hover {
     transform: scale(1.1);
     color: var(--skill-bar-fill);
+}
+
+.theme-toggle, .language-toggle, .download-toggle {
+    z-index: 1100;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.tabs-container {
+    position: relative;
+    z-index: 1000;
 }

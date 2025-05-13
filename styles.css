@@ -305,6 +305,18 @@ h1, h2, h3 {
     .skills-grid {
         grid-template-columns: 1fr;
     }
+    
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .tab-panel {
+        padding: 1rem;
+    }
+    
+    .tabs-container {
+        padding: 1.5rem 1rem;
+    }
 }
 
 @keyframes fadeIn {
@@ -438,6 +450,34 @@ h1, h2, h3 {
     .contact-links {
         gap: 1.5rem;
     }
+    
+    .skills-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .tabs-container {
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+    }
+    
+    .tab-panel {
+        padding: 1rem;
+    }
+    
+    .skill {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.75rem;
+        flex-wrap: wrap;
+    }
+    
+    .proficiency-text {
+        margin-top: 0;
+        margin-left: 0;
+        font-size: 0.9rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -449,6 +489,38 @@ h1, h2, h3 {
     .language-toggle {
         top: 1rem;
         left: 1rem;
+    }
+    
+    /* Adjust the download toggle position for better mobile layout */
+    .download-toggle {
+        top: 1rem;
+        right: 4.5rem;
+    }
+    
+    /* Reduce padding for better content fit */
+    body {
+        padding: 0.75rem;
+    }
+    
+    /* Improve mobile layout for skill items */
+    .skill {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.75rem;
+        margin-bottom: 0.75rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .proficiency-text {
+        margin-left: 0;
+        font-size: 0.85rem;
+        padding: 0.2rem 0.5rem;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     h1 {
